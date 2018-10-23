@@ -5,6 +5,7 @@
 import math
 import tensorflow as tf
 import numpy as np
+import random
 import pylab as plt
 import pickle
 
@@ -12,10 +13,11 @@ NUM_CLASSES = 10
 IMG_SIZE = 32
 NUM_CHANNELS = 3
 learning_rate = 0.001
-epochs = 100
+epochs = 1000
 batch_size = 128
 
 seed = 10
+random.seed(seed)
 np.random.seed(seed)
 tf.set_random_seed(seed)
 
@@ -76,7 +78,7 @@ def cnn(images):
     b_fc2 = bias_variable([10], 'biases_fc2')
 
     logits = tf.matmul(h_fc1, W_fc2) + b_fc2
-    return logits
+    return h_conv1, h_pool1, h_conv2, h_pool2, logits
 
 
 def weight_variable(shape, stddev, name):
@@ -90,18 +92,20 @@ def bias_variable(shape, name):
 
 def main():
     trainX, trainY = load_data('../../data/data_batch_1')
+    x_min, x_max = np.min(trainX, axis=0), np.max(trainX, axis=0)
     print(trainX.shape, trainY.shape)
 
     testX, testY = load_data('../../data/test_batch_trim')
     print(testX.shape, testY.shape)
 
-    trainX = (trainX - np.min(trainX, axis=0)) / (np.max(trainX, axis=0) - np.min(trainX, axis=0))
+    trainX = (trainX - x_min) / (x_max - x_min)
+    testX = (testX - x_min) / (x_max - x_min)
 
     # Create the model
     x = tf.placeholder(tf.float32, [None, IMG_SIZE * IMG_SIZE * NUM_CHANNELS])
     y_ = tf.placeholder(tf.float32, [None, NUM_CLASSES])
 
-    logits = cnn(x)
+    h_conv1, h_pool1, h_conv2, h_pool2, logits = cnn(x)
 
     cross_entropy = tf.nn.softmax_cross_entropy_with_logits_v2(labels=y_, logits=logits)
     loss = tf.reduce_mean(cross_entropy)
@@ -126,21 +130,77 @@ def main():
             for start, end in zip(range(0, N, batch_size), range(batch_size, N, batch_size)):
                 _ = sess.run([train_step], {x: trainX[start:end], y_: trainY[start:end]})
 
-            loss_ = sess.run([loss], {x: trainX[0:1000], y_: trainY[0:1000]})
-            accuracy_ = sess.run([accuracy], {x: testX[0:1000], y_: testY[0:1000]})
+            loss_ = sess.run([loss], {x: trainX, y_: trainY})
+            accuracy_ = sess.run([accuracy], {x: testX, y_: testY})
             train_loss.append(loss_[0])
             test_acc.append(accuracy_[0])
-            print('epoch %d: test accuracy %g train loss %g' % (e, test_acc[e], train_loss[e]))
 
-    ind = np.random.randint(low=0, high=10000)
-    X = trainX[ind, :]
+            if e % (epochs // 10) == 0 or e == epochs - 1:
+                print('epoch {0:5d}: Test Acc: {1:8.4f} Train Cost: {2:8.4f}'.format(e + 1, test_acc[e], train_loss[e]))
 
-    plt.figure()
-    plt.gray()
-    X_show = X.reshape(NUM_CHANNELS, IMG_SIZE, IMG_SIZE).transpose(1, 2, 0)
-    plt.axis('off')
-    plt.imshow(X_show)
-    plt.savefig('./p1b_2.png')
+        # plot learning curves
+        plt.figure(1)
+        plt.plot(range(epochs), train_loss, 'b', label='Training Cost')
+        plt.plot(range(epochs), test_acc, 'r', label='Test Accuracy')
+        plt.title('Training Cost and Test Accuracy against Epochs')
+        plt.xlabel('Epochs')
+        plt.ylabel('Cost and Accuracy')
+        plt.legend(loc='best')
+        plt.savefig('part_a_qn1-1.png')
+
+        indexes = random.sample(range(0, 2000), 2)
+        for i in range(2):
+            X = testX[indexes[i], :]
+
+            # Test pattern
+            plt.figure()
+            plt.gray()
+            X_show = X.reshape(NUM_CHANNELS, IMG_SIZE, IMG_SIZE).transpose(1, 2, 0)
+            plt.axis('off')
+            plt.imshow(X_show)
+            plt.savefig('./part_a_qn1-2_pattern({}).png'.format(i))
+
+            h_conv1_, h_pool1_, h_conv2_, h_pool2_ = sess.run([h_conv1, h_pool1, h_conv2, h_pool2],
+                                                              {x: X.reshape(1, 3*32*32)})
+
+            plt.figure()
+            plt.gray()
+            h_conv1_ = np.array(h_conv1_)
+            print(h_conv1_.shape)
+            for j in range(50):
+                plt.subplot(5, 10, j + 1)
+                plt.axis('off')
+                plt.imshow(h_conv1_[0, :, :, j])
+            plt.savefig('./part_a_qn1-2_conv1({}).png'.format(i))
+
+            plt.figure()
+            plt.gray()
+            h_pool1_ = np.array(h_pool1_)
+            for j in range(50):
+                plt.subplot(5, 10, j + 1)
+                plt.axis('off')
+                plt.imshow(h_pool1_[0, :, :, j])
+            plt.savefig('./part_a_qn1-2_pool1({}).png'.format(i))
+
+            plt.figure()
+            plt.gray()
+            h_conv2_ = np.array(h_conv2_)
+            for j in range(50):
+                plt.subplot(5, 10, j + 1)
+                plt.axis('off')
+                plt.imshow(h_conv2_[0, :, :, j])
+            plt.savefig('./part_a_qn1-2_conv2({}).png'.format(i))
+
+            plt.figure()
+            plt.gray()
+            h_pool2_ = np.array(h_pool2_)
+            for j in range(50):
+                plt.subplot(5, 10, j + 1)
+                plt.axis('off')
+                plt.imshow(h_pool2_[0, :, :, j])
+            plt.savefig('./part_a_qn1-2_pool2({}).png'.format(i))
+
+        plt.show()
 
 
 if __name__ == '__main__':

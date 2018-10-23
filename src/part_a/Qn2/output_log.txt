@@ -1,0 +1,41 @@
+{'120-->240': 0.365, '160-->240': 0.364, '200-->240': 0.36, '160-->200': 0.3535, '80-->240': 0.351}
+
+Feature maps combination: 120-->240
+epoch     1: Test Acc:   0.1540
+epoch    13: Test Acc:   0.2930
+epoch    25: Test Acc:   0.3130
+epoch    37: Test Acc:   0.3285
+epoch    49: Test Acc:   0.3535
+epoch    60: Test Acc:   0.3650
+
+Feature maps combination: 160-->240
+epoch     1: Test Acc:   0.1170
+epoch    13: Test Acc:   0.2995
+epoch    25: Test Acc:   0.3060
+epoch    37: Test Acc:   0.3245
+epoch    49: Test Acc:   0.3505
+epoch    60: Test Acc:   0.3640
+
+Feature maps combination: 200-->240
+epoch     1: Test Acc:   0.1585
+epoch    13: Test Acc:   0.2995
+epoch    25: Test Acc:   0.3240
+epoch    37: Test Acc:   0.3390
+epoch    49: Test Acc:   0.3515
+epoch    60: Test Acc:   0.3600
+
+Feature maps combination: 160-->200
+epoch     1: Test Acc:   0.1360
+epoch    13: Test Acc:   0.2890
+epoch    25: Test Acc:   0.3150
+epoch    37: Test Acc:   0.3245
+epoch    49: Test Acc:   0.3390
+epoch    60: Test Acc:   0.3535
+
+Feature maps combination: 80-->240
+epoch     1: Test Acc:   0.1350
+epoch    13: Test Acc:   0.2815
+epoch    25: Test Acc:   0.3120
+epoch    37: Test Acc:   0.3235
+epoch    49: Test Acc:   0.3470
+epoch    60: Test Acc:   0.3510
