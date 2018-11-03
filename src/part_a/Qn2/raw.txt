@@ -1,0 +1,199 @@
+D:\Projects\CE4042-Project2\env\Scripts\python.exe D:/Projects/CE4042-Project2/src/part_a/part_a_qn_2.py
+(10000, 3072) (10000, 10)
+(2000, 3072) (2000, 10)
+Feature maps combination: 40-->80
+2018-11-02 21:28:49.858753: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2
+2018-11-02 21:28:50.147631: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1411] Found device 0 with properties: 
+name: GeForce GTX 1050 major: 6 minor: 1 memoryClockRate(GHz): 1.493
+pciBusID: 0000:01:00.0
+totalMemory: 4.00GiB freeMemory: 3.30GiB
+2018-11-02 21:28:50.182313: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1490] Adding visible gpu devices: 0
+2018-11-02 21:28:53.711520: I tensorflow/core/common_runtime/gpu/gpu_device.cc:971] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-11-02 21:28:53.711992: I tensorflow/core/common_runtime/gpu/gpu_device.cc:977]      0 
+2018-11-02 21:28:53.712134: I tensorflow/core/common_runtime/gpu/gpu_device.cc:990] 0:   N 
+2018-11-02 21:28:53.724796: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1103] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 3018 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1050, pci bus id: 0000:01:00.0, compute capability: 6.1)
+epoch     1: Test Acc:   0.1030
+epoch   201: Test Acc:   0.4040
+epoch   401: Test Acc:   0.4620
+epoch   601: Test Acc:   0.5155
+epoch   801: Test Acc:   0.5210
+epoch  1000: Test Acc:   0.5370
+Feature maps combination: 40-->120
+2018-11-02 21:47:04.236408: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1490] Adding visible gpu devices: 0
+2018-11-02 21:47:04.236644: I tensorflow/core/common_runtime/gpu/gpu_device.cc:971] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-11-02 21:47:04.236838: I tensorflow/core/common_runtime/gpu/gpu_device.cc:977]      0 
+2018-11-02 21:47:04.236957: I tensorflow/core/common_runtime/gpu/gpu_device.cc:990] 0:   N 
+2018-11-02 21:47:04.237136: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1103] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 3018 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1050, pci bus id: 0000:01:00.0, compute capability: 6.1)
+epoch     1: Test Acc:   0.1305
+epoch   201: Test Acc:   0.4230
+epoch   401: Test Acc:   0.4840
+epoch   601: Test Acc:   0.5085
+epoch   801: Test Acc:   0.5220
+epoch  1000: Test Acc:   0.5410
+Feature maps combination: 40-->160
+2018-11-02 22:06:28.108728: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1490] Adding visible gpu devices: 0
+2018-11-02 22:06:28.108963: I tensorflow/core/common_runtime/gpu/gpu_device.cc:971] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-11-02 22:06:28.109163: I tensorflow/core/common_runtime/gpu/gpu_device.cc:977]      0 
+2018-11-02 22:06:28.109304: I tensorflow/core/common_runtime/gpu/gpu_device.cc:990] 0:   N 
+2018-11-02 22:06:28.109488: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1103] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 3018 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1050, pci bus id: 0000:01:00.0, compute capability: 6.1)
+epoch     1: Test Acc:   0.1320
+epoch   201: Test Acc:   0.4195
+epoch   401: Test Acc:   0.4895
+epoch   601: Test Acc:   0.5245
+epoch   801: Test Acc:   0.5230
+epoch  1000: Test Acc:   0.5350
+Feature maps combination: 40-->200
+2018-11-02 22:27:47.502470: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1490] Adding visible gpu devices: 0
+2018-11-02 22:27:47.502694: I tensorflow/core/common_runtime/gpu/gpu_device.cc:971] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-11-02 22:27:47.502890: I tensorflow/core/common_runtime/gpu/gpu_device.cc:977]      0 
+2018-11-02 22:27:47.503012: I tensorflow/core/common_runtime/gpu/gpu_device.cc:990] 0:   N 
+2018-11-02 22:27:47.503192: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1103] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 3018 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1050, pci bus id: 0000:01:00.0, compute capability: 6.1)
+epoch     1: Test Acc:   0.1150
+epoch   201: Test Acc:   0.4095
+epoch   401: Test Acc:   0.4935
+epoch   601: Test Acc:   0.5165
+epoch   801: Test Acc:   0.5240
+epoch  1000: Test Acc:   0.5315
+Feature maps combination: 40-->240
+2018-11-02 22:51:51.663874: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1490] Adding visible gpu devices: 0
+2018-11-02 22:51:51.664105: I tensorflow/core/common_runtime/gpu/gpu_device.cc:971] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-11-02 22:51:51.664305: I tensorflow/core/common_runtime/gpu/gpu_device.cc:977]      0 
+2018-11-02 22:51:51.664426: I tensorflow/core/common_runtime/gpu/gpu_device.cc:990] 0:   N 
+2018-11-02 22:51:51.664607: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1103] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 3018 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1050, pci bus id: 0000:01:00.0, compute capability: 6.1)
+epoch     1: Test Acc:   0.1465
+epoch   201: Test Acc:   0.4305
+epoch   401: Test Acc:   0.5060
+epoch   601: Test Acc:   0.5325
+epoch   801: Test Acc:   0.5325
+epoch  1000: Test Acc:   0.5270
+Feature maps combination: 80-->120
+2018-11-02 23:17:15.150896: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1490] Adding visible gpu devices: 0
+2018-11-02 23:17:15.151121: I tensorflow/core/common_runtime/gpu/gpu_device.cc:971] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-11-02 23:17:15.151319: I tensorflow/core/common_runtime/gpu/gpu_device.cc:977]      0 
+2018-11-02 23:17:15.151443: I tensorflow/core/common_runtime/gpu/gpu_device.cc:990] 0:   N 
+2018-11-02 23:17:15.151636: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1103] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 3018 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1050, pci bus id: 0000:01:00.0, compute capability: 6.1)
+epoch     1: Test Acc:   0.1205
+epoch   201: Test Acc:   0.4185
+epoch   401: Test Acc:   0.4960
+epoch   601: Test Acc:   0.5155
+epoch   801: Test Acc:   0.5290
+epoch  1000: Test Acc:   0.5385
+Feature maps combination: 80-->160
+2018-11-02 23:44:34.142830: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1490] Adding visible gpu devices: 0
+2018-11-02 23:44:34.143055: I tensorflow/core/common_runtime/gpu/gpu_device.cc:971] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-11-02 23:44:34.143250: I tensorflow/core/common_runtime/gpu/gpu_device.cc:977]      0 
+2018-11-02 23:44:34.143374: I tensorflow/core/common_runtime/gpu/gpu_device.cc:990] 0:   N 
+2018-11-02 23:44:34.143560: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1103] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 3018 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1050, pci bus id: 0000:01:00.0, compute capability: 6.1)
+epoch     1: Test Acc:   0.1565
+epoch   201: Test Acc:   0.4310
+epoch   401: Test Acc:   0.5120
+epoch   601: Test Acc:   0.5195
+epoch   801: Test Acc:   0.5280
+epoch  1000: Test Acc:   0.5190
+Feature maps combination: 80-->200
+2018-11-03 00:14:47.846925: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1490] Adding visible gpu devices: 0
+2018-11-03 00:14:47.847161: I tensorflow/core/common_runtime/gpu/gpu_device.cc:971] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-11-03 00:14:47.847368: I tensorflow/core/common_runtime/gpu/gpu_device.cc:977]      0 
+2018-11-03 00:14:47.847495: I tensorflow/core/common_runtime/gpu/gpu_device.cc:990] 0:   N 
+2018-11-03 00:14:47.847681: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1103] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 3018 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1050, pci bus id: 0000:01:00.0, compute capability: 6.1)
+epoch     1: Test Acc:   0.1265
+epoch   201: Test Acc:   0.4430
+epoch   401: Test Acc:   0.5125
+epoch   601: Test Acc:   0.5215
+epoch   801: Test Acc:   0.5310
+epoch  1000: Test Acc:   0.5270
+Feature maps combination: 80-->240
+2018-11-03 00:47:57.476518: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1490] Adding visible gpu devices: 0
+2018-11-03 00:47:57.476800: I tensorflow/core/common_runtime/gpu/gpu_device.cc:971] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-11-03 00:47:57.477043: I tensorflow/core/common_runtime/gpu/gpu_device.cc:977]      0 
+2018-11-03 00:47:57.477171: I tensorflow/core/common_runtime/gpu/gpu_device.cc:990] 0:   N 
+2018-11-03 00:47:57.477394: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1103] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 3018 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1050, pci bus id: 0000:01:00.0, compute capability: 6.1)
+2018-11-03 00:48:00.234819: W tensorflow/core/common_runtime/bfc_allocator.cc:215] Allocator (GPU_0_bfc) ran out of memory trying to allocate 2.67GiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+epoch     1: Test Acc:   0.1395
+epoch   201: Test Acc:   0.4400
+epoch   401: Test Acc:   0.5105
+epoch   601: Test Acc:   0.5220
+epoch   801: Test Acc:   0.5190
+epoch  1000: Test Acc:   0.5435
+Feature maps combination: 120-->160
+2018-11-03 01:23:40.819115: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1490] Adding visible gpu devices: 0
+2018-11-03 01:23:40.819356: I tensorflow/core/common_runtime/gpu/gpu_device.cc:971] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-11-03 01:23:40.819574: I tensorflow/core/common_runtime/gpu/gpu_device.cc:977]      0 
+2018-11-03 01:23:40.819720: I tensorflow/core/common_runtime/gpu/gpu_device.cc:990] 0:   N 
+2018-11-03 01:23:40.819914: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1103] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 3018 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1050, pci bus id: 0000:01:00.0, compute capability: 6.1)
+2018-11-03 01:23:43.510103: W tensorflow/core/common_runtime/bfc_allocator.cc:215] Allocator (GPU_0_bfc) ran out of memory trying to allocate 1.95GiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+epoch     1: Test Acc:   0.1575
+epoch   201: Test Acc:   0.4435
+epoch   401: Test Acc:   0.5075
+epoch   601: Test Acc:   0.5225
+epoch   801: Test Acc:   0.5285
+epoch  1000: Test Acc:   0.5480
+Feature maps combination: 120-->200
+2018-11-03 02:01:21.803983: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1490] Adding visible gpu devices: 0
+2018-11-03 02:01:21.804216: I tensorflow/core/common_runtime/gpu/gpu_device.cc:971] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-11-03 02:01:21.804429: I tensorflow/core/common_runtime/gpu/gpu_device.cc:977]      0 
+2018-11-03 02:01:21.804559: I tensorflow/core/common_runtime/gpu/gpu_device.cc:990] 0:   N 
+2018-11-03 02:01:21.804746: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1103] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 3018 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1050, pci bus id: 0000:01:00.0, compute capability: 6.1)
+2018-11-03 02:01:25.075524: W tensorflow/core/common_runtime/bfc_allocator.cc:215] Allocator (GPU_0_bfc) ran out of memory trying to allocate 2.69GiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+epoch     1: Test Acc:   0.1235
+epoch   201: Test Acc:   0.4355
+epoch   401: Test Acc:   0.4900
+epoch   601: Test Acc:   0.5030
+epoch   801: Test Acc:   0.5355
+epoch  1000: Test Acc:   0.5395
+Feature maps combination: 120-->240
+2018-11-03 02:42:35.652526: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1490] Adding visible gpu devices: 0
+2018-11-03 02:42:35.652745: I tensorflow/core/common_runtime/gpu/gpu_device.cc:971] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-11-03 02:42:35.652941: I tensorflow/core/common_runtime/gpu/gpu_device.cc:977]      0 
+2018-11-03 02:42:35.653065: I tensorflow/core/common_runtime/gpu/gpu_device.cc:990] 0:   N 
+2018-11-03 02:42:35.653287: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1103] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 3018 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1050, pci bus id: 0000:01:00.0, compute capability: 6.1)
+2018-11-03 02:42:39.126959: W tensorflow/core/common_runtime/bfc_allocator.cc:215] Allocator (GPU_0_bfc) ran out of memory trying to allocate 3.03GiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+epoch     1: Test Acc:   0.1715
+epoch   201: Test Acc:   0.4495
+epoch   401: Test Acc:   0.5200
+epoch   601: Test Acc:   0.5005
+epoch   801: Test Acc:   0.5350
+epoch  1000: Test Acc:   0.5525
+Feature maps combination: 160-->200
+2018-11-03 03:26:35.620131: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1490] Adding visible gpu devices: 0
+2018-11-03 03:26:35.620348: I tensorflow/core/common_runtime/gpu/gpu_device.cc:971] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-11-03 03:26:35.620545: I tensorflow/core/common_runtime/gpu/gpu_device.cc:977]      0 
+2018-11-03 03:26:35.620671: I tensorflow/core/common_runtime/gpu/gpu_device.cc:990] 0:   N 
+2018-11-03 03:26:35.620857: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1103] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 3018 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1050, pci bus id: 0000:01:00.0, compute capability: 6.1)
+2018-11-03 03:26:39.396542: W tensorflow/core/common_runtime/bfc_allocator.cc:215] Allocator (GPU_0_bfc) ran out of memory trying to allocate 2.59GiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2018-11-03 03:26:40.199664: W tensorflow/core/common_runtime/bfc_allocator.cc:215] Allocator (GPU_0_bfc) ran out of memory trying to allocate 3.05GiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+epoch     1: Test Acc:   0.1005
+epoch   201: Test Acc:   0.4450
+epoch   401: Test Acc:   0.5045
+epoch   601: Test Acc:   0.5140
+epoch   801: Test Acc:   0.5165
+epoch  1000: Test Acc:   0.5365
+Feature maps combination: 160-->240
+2018-11-03 04:18:48.714723: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1490] Adding visible gpu devices: 0
+2018-11-03 04:18:48.714938: I tensorflow/core/common_runtime/gpu/gpu_device.cc:971] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-11-03 04:18:48.715138: I tensorflow/core/common_runtime/gpu/gpu_device.cc:977]      0 
+2018-11-03 04:18:48.715263: I tensorflow/core/common_runtime/gpu/gpu_device.cc:990] 0:   N 
+2018-11-03 04:18:48.715457: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1103] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 3018 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1050, pci bus id: 0000:01:00.0, compute capability: 6.1)
+2018-11-03 04:18:53.130343: W tensorflow/core/common_runtime/bfc_allocator.cc:215] Allocator (GPU_0_bfc) ran out of memory trying to allocate 3.40GiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+epoch     1: Test Acc:   0.1245
+epoch   201: Test Acc:   0.4530
+epoch   401: Test Acc:   0.4965
+epoch   601: Test Acc:   0.5065
+epoch   801: Test Acc:   0.5295
+epoch  1000: Test Acc:   0.5345
+Feature maps combination: 200-->240
+2018-11-03 05:14:48.405267: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1490] Adding visible gpu devices: 0
+2018-11-03 05:14:48.405514: I tensorflow/core/common_runtime/gpu/gpu_device.cc:971] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-11-03 05:14:48.405750: I tensorflow/core/common_runtime/gpu/gpu_device.cc:977]      0 
+2018-11-03 05:14:48.405905: I tensorflow/core/common_runtime/gpu/gpu_device.cc:990] 0:   N 
+2018-11-03 05:14:48.406116: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1103] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 3018 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1050, pci bus id: 0000:01:00.0, compute capability: 6.1)
+2018-11-03 05:14:53.201407: W tensorflow/core/common_runtime/bfc_allocator.cc:215] Allocator (GPU_0_bfc) ran out of memory trying to allocate 3.24GiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2018-11-03 05:14:53.201778: W tensorflow/core/common_runtime/bfc_allocator.cc:215] Allocator (GPU_0_bfc) ran out of memory trying to allocate 1.65GiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2018-11-03 05:14:53.818037: W tensorflow/core/common_runtime/bfc_allocator.cc:215] Allocator (GPU_0_bfc) ran out of memory trying to allocate 2.38GiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+epoch     1: Test Acc:   0.1310
+epoch   201: Test Acc:   0.4600
+epoch   401: Test Acc:   0.5230
+epoch   601: Test Acc:   0.5225
+epoch   801: Test Acc:   0.5455
+epoch  1000: Test Acc:   0.5440
+{'120-->240': 0.5525, '120-->160': 0.548, '200-->240': 0.544, '80-->240': 0.5435, '40-->120': 0.541}

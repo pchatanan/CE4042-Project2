@@ -1,41 +1,41 @@
-{'120-->240': 0.365, '160-->240': 0.364, '200-->240': 0.36, '160-->200': 0.3535, '80-->240': 0.351}
+{'120-->240': 0.5525, '120-->160': 0.548, '200-->240': 0.544, '80-->240': 0.5435, '40-->120': 0.541}
 
 Feature maps combination: 120-->240
-epoch     1: Test Acc:   0.1540
-epoch    13: Test Acc:   0.2930
-epoch    25: Test Acc:   0.3130
-epoch    37: Test Acc:   0.3285
-epoch    49: Test Acc:   0.3535
-epoch    60: Test Acc:   0.3650
+epoch     1: Test Acc:   0.1715
+epoch   201: Test Acc:   0.4495
+epoch   401: Test Acc:   0.5200
+epoch   601: Test Acc:   0.5005
+epoch   801: Test Acc:   0.5350
+epoch  1000: Test Acc:   0.5525
 
-Feature maps combination: 160-->240
-epoch     1: Test Acc:   0.1170
-epoch    13: Test Acc:   0.2995
-epoch    25: Test Acc:   0.3060
-epoch    37: Test Acc:   0.3245
-epoch    49: Test Acc:   0.3505
-epoch    60: Test Acc:   0.3640
+Feature maps combination: 120-->160
+epoch     1: Test Acc:   0.1575
+epoch   201: Test Acc:   0.4435
+epoch   401: Test Acc:   0.5075
+epoch   601: Test Acc:   0.5225
+epoch   801: Test Acc:   0.5285
+epoch  1000: Test Acc:   0.5480
 
 Feature maps combination: 200-->240
-epoch     1: Test Acc:   0.1585
-epoch    13: Test Acc:   0.2995
-epoch    25: Test Acc:   0.3240
-epoch    37: Test Acc:   0.3390
-epoch    49: Test Acc:   0.3515
-epoch    60: Test Acc:   0.3600
-
-Feature maps combination: 160-->200
-epoch     1: Test Acc:   0.1360
-epoch    13: Test Acc:   0.2890
-epoch    25: Test Acc:   0.3150
-epoch    37: Test Acc:   0.3245
-epoch    49: Test Acc:   0.3390
-epoch    60: Test Acc:   0.3535
+epoch     1: Test Acc:   0.1310
+epoch   201: Test Acc:   0.4600
+epoch   401: Test Acc:   0.5230
+epoch   601: Test Acc:   0.5225
+epoch   801: Test Acc:   0.5455
+epoch  1000: Test Acc:   0.5440
 
 Feature maps combination: 80-->240
-epoch     1: Test Acc:   0.1350
-epoch    13: Test Acc:   0.2815
-epoch    25: Test Acc:   0.3120
-epoch    37: Test Acc:   0.3235
-epoch    49: Test Acc:   0.3470
-epoch    60: Test Acc:   0.3510
+epoch     1: Test Acc:   0.1395
+epoch   201: Test Acc:   0.4400
+epoch   401: Test Acc:   0.5105
+epoch   601: Test Acc:   0.5220
+epoch   801: Test Acc:   0.5190
+epoch  1000: Test Acc:   0.5435
+
+Feature maps combination: 40-->120
+epoch     1: Test Acc:   0.1305
+epoch   201: Test Acc:   0.4230
+epoch   401: Test Acc:   0.4840
+epoch   601: Test Acc:   0.5085
+epoch   801: Test Acc:   0.5220
+epoch  1000: Test Acc:   0.5410

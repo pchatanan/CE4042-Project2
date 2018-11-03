@@ -14,8 +14,8 @@ IMG_SIZE = 32
 NUM_CHANNELS = 3
 learning_rate = 0.001
 epochs = 1000
+num_c1, num_c2 = 120, 240
 batch_size = 128
-NUM_FEATURE_MAPS = [40, 80, 120, 160, 200, 240]
 
 seed = 10
 random.seed(seed)
@@ -74,12 +74,15 @@ def cnn(images, c1, c2):
 
     h_fc1 = tf.nn.relu(tf.matmul(h_pool2_flat, W_fc1) + b_fc1)
 
+    keep_prob = tf.placeholder(tf.float32)
+    h_fc1_drop = tf.nn.dropout(h_fc1, keep_prob)
+
     # Softmax layer
     W_fc2 = weight_variable([300, 10], 1.0 / np.sqrt(300), 'weights_fc2')
     b_fc2 = bias_variable([10], 'biases_fc2')
 
-    logits = tf.matmul(h_fc1, W_fc2) + b_fc2
-    return logits
+    logits = tf.matmul(h_fc1_drop, W_fc2) + b_fc2
+    return logits, keep_prob
 
 
 def weight_variable(shape, stddev, name):
@@ -106,65 +109,66 @@ def main():
     x = tf.placeholder(tf.float32, [None, IMG_SIZE * IMG_SIZE * NUM_CHANNELS])
     y_ = tf.placeholder(tf.float32, [None, NUM_CLASSES])
 
-    all_test_acc = {}
-    last_test_acc = {}
-    for c1 in range(len(NUM_FEATURE_MAPS)):
-        for c2 in range(c1 + 1, len(NUM_FEATURE_MAPS)):
-            num_c1, num_c2 = NUM_FEATURE_MAPS[c1], NUM_FEATURE_MAPS[c2]
-            label = "{}-->{}".format(num_c1, num_c2)
-            print("Feature maps combination: {}".format(label))
+    logits, keep_prob = cnn(x, num_c1, num_c2)
 
-            logits = cnn(x, num_c1, num_c2)
+    cross_entropy = tf.nn.softmax_cross_entropy_with_logits_v2(labels=y_, logits=logits)
+    loss = tf.reduce_mean(cross_entropy)
 
-            cross_entropy = tf.nn.softmax_cross_entropy_with_logits_v2(labels=y_, logits=logits)
-            loss = tf.reduce_mean(cross_entropy)
+    train_step_a = tf.train.MomentumOptimizer(learning_rate, 0.1).minimize(loss)
+    train_step_b = tf.train.RMSPropOptimizer(learning_rate).minimize(loss)
+    train_step_c = tf.train.AdamOptimizer(learning_rate).minimize(loss)
+    train_step_d = tf.train.GradientDescentOptimizer(learning_rate).minimize(loss)
 
-            train_step = tf.train.GradientDescentOptimizer(learning_rate).minimize(loss)
+    correct_prediction = tf.equal(tf.argmax(logits, 1), tf.argmax(y_, 1))
+    correct_prediction = tf.cast(correct_prediction, tf.float32)
+    accuracy = tf.reduce_mean(correct_prediction)
 
-            correct_prediction = tf.equal(tf.argmax(logits, 1), tf.argmax(y_, 1))
-            correct_prediction = tf.cast(correct_prediction, tf.float32)
-            accuracy = tf.reduce_mean(correct_prediction)
+    model_dict = {
+        "Momentum": (train_step_a, 1.0),
+        "RMSProp": (train_step_b, 1.0),
+        "Adam": (train_step_c, 1.0),
+        "Dropout": (train_step_d, 0.5)
+    }
 
-            N = len(trainX)
-            idx = np.arange(N)
-            with tf.Session() as sess:
-                sess.run(tf.global_variables_initializer())
+    N = len(trainX)
+    idx = np.arange(N)
+    with tf.Session() as sess:
 
-                test_acc = []
-                for e in range(epochs):
-                    np.random.shuffle(idx)
-                    trainX, trainY = trainX[idx], trainY[idx]
+        for model_name, model in model_dict.items():
 
-                    for start, end in zip(range(0, N, batch_size), range(batch_size, N, batch_size)):
-                        _ = sess.run([train_step], {x: trainX[start:end], y_: trainY[start:end]})
+            train_step, keep_prob_value = model
 
-                    accuracy_ = sess.run([accuracy], {x: testX, y_: testY})
-                    test_acc.append(accuracy_[0])
+            print("Model: {}".format(model_name))
+            sess.run(tf.global_variables_initializer())
 
-                    if e % (epochs // 5) == 0 or e == epochs - 1:
-                        print('epoch {0:5d}: Test Acc: {1:8.4f}'.format(e + 1, test_acc[e]))
+            train_loss = []
+            test_acc = []
+            for e in range(epochs):
+                np.random.shuffle(idx)
+                trainX, trainY = trainX[idx], trainY[idx]
 
-                all_test_acc[label] = test_acc
-                last_test_acc[label] = test_acc[-1]
+                for start, end in zip(range(0, N, batch_size), range(batch_size, N, batch_size)):
+                    _ = sess.run([train_step], {x: trainX[start:end], y_: trainY[start:end], keep_prob: keep_prob_value})
 
-    sorted_last_test_acc = {}
-    for key in sorted(last_test_acc, key=last_test_acc.get, reverse=True)[:5]:
-        sorted_last_test_acc.update({key: last_test_acc[key]})
+                loss1_ = sess.run([loss], {x: trainX[:5000], y_: trainY[:5000], keep_prob: 1.0})
+                loss2_ = sess.run([loss], {x: trainX[5000:], y_: trainY[5000:], keep_prob: 1.0})
+                accuracy_ = sess.run([accuracy], {x: testX, y_: testY, keep_prob: 1.0})
+                train_loss.append((loss1_[0] + loss2_[0])/2)
+                test_acc.append(accuracy_[0])
 
-    print(sorted_last_test_acc)
+                if e % (epochs // 10) == 0 or e == epochs - 1:
+                    print('epoch {0:5d}: Test Acc: {1:8.4f} Train Cost: {2:8.4f}'.format(e + 1, test_acc[e], train_loss[e]))
 
-    # plot learning curves
-    plt.figure(1)
-    for key_label in sorted_last_test_acc:
-        plt.plot(range(epochs), all_test_acc.get(key_label), label=key_label)
-    plt.title('Test Accuracy against Epochs')
-    plt.xlabel('Epochs')
-    plt.ylabel('Test Accuracy')
-    plt.legend(loc='best')
-    plt.savefig('./Qn2/part_a_qn2.png')
+            plt.figure()
+            plt.plot(range(epochs), train_loss, 'b', label='Training Cost')
+            plt.plot(range(epochs), test_acc, 'r', label='Test Accuracy')
+            plt.title('Training Cost and Test Accuracy against Epochs ({})'.format(model_name))
+            plt.xlabel('Epochs')
+            plt.ylabel('Cost and Accuracy')
+            plt.legend(loc='best')
+            plt.savefig('part_a_qn3-{}.png'.format(model_name))
 
     plt.show()
-
 
 if __name__ == '__main__':
     main()
