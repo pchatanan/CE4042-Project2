@@ -1,0 +1,51 @@
+Model: Momentum
+epoch     1: Test Acc:   0.1675 Train Cost:   2.2882
+epoch   101: Test Acc:   0.4025 Train Cost:   1.6966
+epoch   201: Test Acc:   0.4465 Train Cost:   1.5108
+epoch   301: Test Acc:   0.4850 Train Cost:   1.3863
+epoch   401: Test Acc:   0.5070 Train Cost:   1.2705
+epoch   501: Test Acc:   0.5235 Train Cost:   1.0731
+epoch   601: Test Acc:   0.5330 Train Cost:   0.9448
+epoch   701: Test Acc:   0.5265 Train Cost:   0.7829
+epoch   801: Test Acc:   0.5360 Train Cost:   0.6240
+epoch   901: Test Acc:   0.5345 Train Cost:   0.4742
+epoch  1000: Test Acc:   0.5365 Train Cost:   0.3416
+
+Model: RMSProp
+epoch     1: Test Acc:   0.2345 Train Cost:   2.1755
+epoch   101: Test Acc:   0.4875 Train Cost:   0.0244
+epoch   201: Test Acc:   0.4840 Train Cost:   0.0143
+epoch   301: Test Acc:   0.4655 Train Cost:   0.0304
+epoch   401: Test Acc:   0.4660 Train Cost:   0.0965
+epoch   501: Test Acc:   0.4675 Train Cost:   0.0091
+epoch   601: Test Acc:   0.4640 Train Cost:   0.0377
+epoch   701: Test Acc:   0.4935 Train Cost:   0.0383
+epoch   801: Test Acc:   0.4960 Train Cost:   0.0347
+epoch   901: Test Acc:   0.4780 Train Cost:   0.0344
+epoch  1000: Test Acc:   0.4920 Train Cost:   0.0510
+
+Model: Adam
+epoch     1: Test Acc:   0.3510 Train Cost:   1.7981
+epoch   101: Test Acc:   0.5125 Train Cost:   0.0001
+epoch   201: Test Acc:   0.5130 Train Cost:   0.0000
+epoch   301: Test Acc:   0.1000 Train Cost:   2.3026
+epoch   401: Test Acc:   0.1000 Train Cost:   2.3022
+epoch   501: Test Acc:   0.1000 Train Cost:   2.3022
+epoch   601: Test Acc:   0.1000 Train Cost:   2.3022
+epoch   701: Test Acc:   0.1000 Train Cost:   2.3022
+epoch   801: Test Acc:   0.1000 Train Cost:   2.3022
+epoch   901: Test Acc:   0.1000 Train Cost:   2.3022
+epoch  1000: Test Acc:   0.1000 Train Cost:   2.3022
+
+Model: Dropout
+epoch     1: Test Acc:   0.1320 Train Cost:   2.2869
+epoch   101: Test Acc:   0.3665 Train Cost:   1.7731
+epoch   201: Test Acc:   0.4325 Train Cost:   1.6034
+epoch   301: Test Acc:   0.4675 Train Cost:   1.4734
+epoch   401: Test Acc:   0.4680 Train Cost:   1.4188
+epoch   501: Test Acc:   0.5005 Train Cost:   1.3266
+epoch   601: Test Acc:   0.5270 Train Cost:   1.1808
+epoch   701: Test Acc:   0.5335 Train Cost:   1.1124
+epoch   801: Test Acc:   0.5435 Train Cost:   0.9997
+epoch   901: Test Acc:   0.5430 Train Cost:   0.8972
+epoch  1000: Test Acc:   0.5255 Train Cost:   0.8175
