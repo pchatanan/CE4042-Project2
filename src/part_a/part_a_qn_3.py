@@ -124,10 +124,11 @@ def main():
     accuracy = tf.reduce_mean(correct_prediction)
 
     model_dict = {
-        "Momentum": (train_step_a, 1.0),
-        "RMSProp": (train_step_b, 1.0),
-        "Adam": (train_step_c, 1.0),
-        "Dropout": (train_step_d, 0.5)
+        "Adam": (train_step_c, 0.5)
+        # "Momentum": (train_step_a, 1.0),
+        # "RMSProp": (train_step_b, 1.0),
+        # "Adam": (train_step_c, 1.0),
+        # "Dropout": (train_step_d, 0.5)
     }
 
     N = len(trainX)
