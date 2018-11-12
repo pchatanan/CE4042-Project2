@@ -125,7 +125,7 @@ def main():
     plt.xlabel('Epoch')
     plt.ylabel('Accuracy')
     plt.legend(loc='lower right')
-    plt.savefig('b3_b_char_2.png')
+    plt.savefig('b6_b_char_2.png')
 
 
 if __name__ == '__main__':
