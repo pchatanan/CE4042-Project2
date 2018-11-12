@@ -3,6 +3,7 @@ import pandas
 import tensorflow as tf
 import csv
 import pylab as plt
+import time
 
 
 MAX_DOCUMENT_LENGTH = 100
@@ -61,13 +62,13 @@ def char_cnn_model(x):
 def read_data_chars():
     x_train, y_train, x_test, y_test = [], [], [], []
 
-    with open('train_medium.csv', encoding='utf-8') as filex:
+    with open('../../data/train_medium.csv', encoding='utf-8') as filex:
         reader = csv.reader(filex)
         for row in reader:
             x_train.append(row[1])
             y_train.append(int(row[0]))
 
-    with open('test_medium.csv', encoding='utf-8') as filex:
+    with open('../../data/test_medium.csv', encoding='utf-8') as filex:
         reader = csv.reader(filex)
         for row in reader:
             x_test.append(row[1])
@@ -108,6 +109,7 @@ def main():
     num_correct = tf.cast(tf.equal(y, tf.argmax(logits, axis=1)), tf.float32)
     accuracy = tf.reduce_mean(num_correct)
 
+    start_time = time.time()
     with tf.Session() as sess:
         sess.run(tf.global_variables_initializer())
         loss = []
@@ -115,6 +117,9 @@ def main():
         acc_train = []
         N = len(x_train)
         idx = np.arange(N)
+        print('iter: %d, entropy: %g, accuracy: %g   %g' % (0, entropy.eval(feed_dict={x: x_train, y: y_train}),
+                                                            accuracy.eval(feed_dict={x: x_train, y: y_train}),
+                                                            accuracy.eval(feed_dict={x: x_test, y: y_test})))
         for e in range(no_epochs):
             np.random.shuffle(idx)
             x_train, y_train = x_train[idx], y_train[idx]
@@ -124,8 +129,10 @@ def main():
             acc_train.append(acc_)
             acc_test.append(accuracy.eval(feed_dict={x:x_test, y:y_test}))
 
-            if e % 5 == 0:
-                print('iter: %d, entropy: %g, accuracy: %g   %g' % (e, loss[e], acc_train[e], acc_test[e]))
+            if e % 5 == 0 or e == no_epochs-1:
+                print('iter: %d, entropy: %g, accuracy: %g   %g' % (e+1, loss[e], acc_train[e], acc_test[e]))
+    end_time = time.time()
+    print('Time taken: %g' % (end_time-start_time))
 
     plt.figure(1)
     plt.plot(range(no_epochs), loss, 'b', label='Cross Entropy')
@@ -142,8 +149,6 @@ def main():
     plt.ylabel('Accuracy')
     plt.legend(loc='lower right')
     plt.savefig('b1_2.png')
-
-
 
 
 if __name__ == '__main__':
