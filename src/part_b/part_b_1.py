@@ -129,7 +129,7 @@ def main():
             acc_train.append(acc_)
             acc_test.append(accuracy.eval(feed_dict={x:x_test, y:y_test}))
 
-            if e % 5 == 0 or e == no_epochs-1:
+            if (e+1) % 5 == 0:
                 print('iter: %d, entropy: %g, accuracy: %g   %g' % (e+1, loss[e], acc_train[e], acc_test[e]))
     end_time = time.time()
     print('Time taken: %g' % (end_time-start_time))
