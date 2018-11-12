@@ -1,0 +1,12 @@
+iter: 0, entropy: 2.70806, accuracy: 0.0719643   0.0714286
+iter: 5, entropy: 0.0178131, accuracy: 0.992188   0.845714
+iter: 10, entropy: 0.00039775, accuracy: 1   0.882857
+iter: 15, entropy: 0.0582857, accuracy: 0.976562   0.831429
+iter: 20, entropy: 0.0115456, accuracy: 0.992188   0.847143
+iter: 25, entropy: 0.000210946, accuracy: 1   0.87
+iter: 30, entropy: 4.73558e-05, accuracy: 1   0.874286
+iter: 35, entropy: 2.69001e-05, accuracy: 1   0.875714
+iter: 40, entropy: 1.27765e-05, accuracy: 1   0.874286
+iter: 45, entropy: 6.99349e-06, accuracy: 1   0.874286
+iter: 50, entropy: 6.28575e-06, accuracy: 1   0.872857
+Time taken: 15.315

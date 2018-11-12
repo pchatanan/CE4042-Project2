@@ -1,0 +1,22 @@
+iter: 0, entropy: 2.71212, accuracy: 0.0714286   0.0714286
+iter: 5, entropy: 1.87013, accuracy: 0.367188   0.387143
+iter: 10, entropy: 1.70048, accuracy: 0.453125   0.434286
+iter: 15, entropy: 1.30421, accuracy: 0.554688   0.458571
+iter: 20, entropy: 1.33299, accuracy: 0.5625   0.478571
+iter: 25, entropy: 1.21111, accuracy: 0.578125   0.512857
+iter: 30, entropy: 1.15478, accuracy: 0.625   0.482857
+iter: 35, entropy: 0.993207, accuracy: 0.632812   0.482857
+iter: 40, entropy: 1.06513, accuracy: 0.625   0.477143
+iter: 45, entropy: 1.06502, accuracy: 0.625   0.49
+iter: 50, entropy: 0.858553, accuracy: 0.703125   0.49
+iter: 55, entropy: 0.762975, accuracy: 0.757812   0.48
+iter: 60, entropy: 0.707864, accuracy: 0.75   0.471429
+iter: 65, entropy: 1.01618, accuracy: 0.625   0.48
+iter: 70, entropy: 1.21547, accuracy: 0.539062   0.48
+iter: 75, entropy: 0.792275, accuracy: 0.734375   0.48
+iter: 80, entropy: 0.688162, accuracy: 0.765625   0.5
+iter: 85, entropy: 0.998743, accuracy: 0.664062   0.485714
+iter: 90, entropy: 0.761511, accuracy: 0.703125   0.484286
+iter: 95, entropy: 0.84133, accuracy: 0.710938   0.464286
+iter: 100, entropy: 0.534449, accuracy: 0.796875   0.471429
+Time taken: 212.801
