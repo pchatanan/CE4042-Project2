@@ -106,8 +106,8 @@ def char_rnn_model(x, keep):
     byte_vectors = tf.one_hot(x,256)
     byte_list = tf.unstack(byte_vectors, axis=1)
 
-    cell = tf.nn.rnn_cell.GRUCell(HIDDEN_SIZE)
-    _, encoding = tf.nn.static_rnn(cell, byte_list, dtype=tf.float32)
+    cell_char = tf.nn.rnn_cell.GRUCell(HIDDEN_SIZE, name='char')
+    _, encoding = tf.nn.static_rnn(cell_char, byte_list, dtype=tf.float32)
     encoding = tf.nn.dropout(encoding, keep)
 
     logits = tf.layers.dense(encoding, MAX_LABEL, activation=None)
@@ -119,8 +119,8 @@ def word_rnn_model(x, keep):
     word_vectors = tf.contrib.layers.embed_sequence(x, vocab_size=no_words, embed_dim=EMBED_SIZE)
     word_list = tf.unstack(word_vectors, axis=1)
 
-    cell = tf.nn.rnn_cell.GRUCell(HIDDEN_SIZE)
-    _, encoding = tf.nn.static_rnn(cell, word_list, dtype=tf.float32)
+    cell_word = tf.nn.rnn_cell.GRUCell(HIDDEN_SIZE, name='word')
+    _, encoding = tf.nn.static_rnn(cell_word, word_list, dtype=tf.float32)
 
     encoding = tf.nn.dropout(encoding, keep)
     logits = tf.layers.dense(encoding, MAX_LABEL, activation=None)
@@ -129,8 +129,9 @@ def word_rnn_model(x, keep):
 
 
 def main():
+    global no_words
     x_train_char, y_train_char , x_test_char, y_test_char = read_data_chars()
-    x_train_word, y_train_word , x_test_word , y_test_word = read_data_words()
+    x_train_word, y_train_word , x_test_word , y_test_word, no_words = read_data_words()
 
 
     # Create the model
@@ -172,7 +173,7 @@ def main():
                 np.random.shuffle(idx)
                 x_train, y_train = x_train[idx], y_train[idx]
                 for (start, end) in zip(range(0, N, batch_size), range(batch_size, N, batch_size)):
-                    _, loss_, acc_ = sess.run([train_op, entropy, accuracy], {x: x_train[start:end], y: y_train[start:end, keep_prob: 0.5]})
+                    _, loss_, acc_ = sess.run([train_op, entropy, accuracy], {x: x_train[start:end], y: y_train[start:end], keep_prob: 0.5})
                 loss.append(loss_)
                 acc_train.append(acc_)
                 acc_test.append(accuracy.eval(feed_dict={x:x_test, y:y_test}))
