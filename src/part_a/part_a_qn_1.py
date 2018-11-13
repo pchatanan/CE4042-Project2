@@ -185,8 +185,8 @@ def main():
             plt.figure()
             plt.gray()
             h_conv2_ = np.array(h_conv2_)
-            for j in range(50):
-                plt.subplot(5, 10, j + 1)
+            for j in range(60):
+                plt.subplot(6, 10, j + 1)
                 plt.axis('off')
                 plt.imshow(h_conv2_[0, :, :, j])
             plt.savefig('./part_a_qn1-2_conv2({}).png'.format(i))
@@ -194,8 +194,8 @@ def main():
             plt.figure()
             plt.gray()
             h_pool2_ = np.array(h_pool2_)
-            for j in range(50):
-                plt.subplot(5, 10, j + 1)
+            for j in range(60):
+                plt.subplot(6, 10, j + 1)
                 plt.axis('off')
                 plt.imshow(h_pool2_[0, :, :, j])
             plt.savefig('./part_a_qn1-2_pool2({}).png'.format(i))
